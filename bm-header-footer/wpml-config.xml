@@ -1,0 +1,10 @@
+<wpml-config>
+	<custom-types>
+		<custom-type translate="1">bmhf_template</custom-type>
+	</custom-types>
+	<custom-fields>
+		<custom-field action="translate">_bmhf_html</custom-field>
+		<custom-field action="copy">_bmhf_type</custom-field>
+		<custom-field action="copy">_bmhf_mode</custom-field>
+	</custom-fields>
+</wpml-config>
