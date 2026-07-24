@@ -40,6 +40,7 @@ Before calling any Stitch generation or editing tool, you MUST enhance the user'
 ### 1. Analyze Context
 - **Project Scope**: Maintain the current `projectId`. Use `list_projects` if unknown.
 - **Design System**: Check for `.stitch/DESIGN.md`. If it exists, incorporate its tokens (colors, typography). If not, suggest the `generate-design-md` workflow.
+- **Content Language**: Determine the language of the on-screen copy — from the user, the project, or `.stitch/DESIGN.md`. Default to the project's language; never default to English for a non-English business. Write every heading, label, and placeholder in that language. For Greek projects use native Modern Greek with correct accents — see the `enhance-prompt` skill (Step 3E) for the Greek UI-copy specifics.
 
 ### 2. Refine UI/UX Terminology
 Consult [Design Mappings](references/design-mappings.md) to replace vague terms.
@@ -54,6 +55,7 @@ Format the enhanced prompt for Stitch like this:
 
 **DESIGN SYSTEM (REQUIRED):**
 - Platform: [Web/Mobile], [Desktop/Mobile]-first
+- Content Language: [project language, e.g. Greek (Ελληνικά)] — write all on-screen copy in it
 - Palette: [Primary Name] (#hex for role), [Secondary Name] (#hex for role)
 - Styles: [Roundness description], [Shadow/Elevation style]
 

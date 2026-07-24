@@ -85,6 +85,9 @@ Convert technical `border-radius` and layout values into physical descriptions:
 ### 5. Describe Depth & Elevation
 Explain how the UI handles layers. Describe the presence and quality of shadows (e.g., "Flat," "Whisper-soft diffused shadows," or "Heavy, high-contrast drop shadows").
 
+### 6. Capture the Content Language
+Record the language of the interface copy — headings, labels, buttons, placeholders. Read it from the project's business language or the text in existing screens. This makes every newly generated screen come out in the right language instead of English by default. For a Greek project, note that all copy must be native Modern Greek (δημοτική) with correct accents, in the polite plural, using localized formats (€, DD/MM/YYYY) — not English placeholders or word-for-word translations.
+
 ## Output Guidelines
 
 - **Language:** Use descriptive design terminology and natural language exclusively
@@ -114,6 +117,9 @@ Explain how the UI handles layers. Describe the presence and quality of shadows 
 
 ## 5. Layout Principles
 (Description of whitespace strategy, margins, and grid alignment.)
+
+## 6. Content Language & Localization
+(The language all on-screen copy must be written in — e.g. "Greek (Ελληνικά)" — plus register and localization rules so every generated screen shares the same voice: e.g. polite plural, € prices, DD/MM/YYYY dates. Default to the project's language, never English for a non-English business.)
 ```
 
 ## Usage Example

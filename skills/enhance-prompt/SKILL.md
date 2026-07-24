@@ -42,6 +42,7 @@ Evaluate what's missing from the user's prompt:
 | **Visual style** | Adjectives, mood, vibe | Add appropriate descriptors |
 | **Colors** | Specific values or roles | Add design system or suggest |
 | **Components** | UI-specific terms | Translate to proper keywords |
+| **Content language** | Language of the on-screen copy | Default to the project/business language; write all UI text in it (see Step 3E) |
 
 ### Step 2: Check for DESIGN.md
 
@@ -113,6 +114,40 @@ Examples:
 - "Warm Cream (#faf5f0) for page background"
 - "Soft Gray (#6b7280) for secondary text"
 
+#### E. Write Copy in the Target Language
+
+Every screen carries real on-screen text — headlines, button labels, placeholders,
+form labels, empty states, tooltips. Write that copy in the **project's language**,
+not English by default, and state the content language explicitly in the prompt so
+Stitch doesn't generate English labels you then have to re-translate.
+
+- Default to the business/project language. Use English only when that is the
+  project's language or nothing else is known.
+- Localize, don't translate: use the wording native speakers actually see in apps,
+  local number/date/currency formats, and realistic sample names and emails.
+- Keep as-is only genuine loanwords, brand names, and technical terms native readers
+  use unchanged (e.g. "email", "SEO").
+
+**Greek (Ελληνικά) projects** — when the project language is Greek (`el`, `Greek`, `Ελληνικά`):
+- Write UI copy in natural, native Modern Greek (δημοτική) with correct monotonic
+  accents (τόνοι). Never use Greeklish (Greek words spelled in Latin letters).
+- Use the label wording Greek apps really use, not literal translations:
+  Login → «Σύνδεση», Sign up → «Εγγραφή», Search… → «Αναζήτηση…»,
+  Submit → «Υποβολή», Checkout → «Ολοκλήρωση παραγγελίας»,
+  Add to cart → «Προσθήκη στο καλάθι», Forgot password? → «Ξεχάσατε τον κωδικό σας;»,
+  Learn more → «Μάθετε περισσότερα», Get started → «Ξεκινήστε».
+- Address the user in the polite plural (πληθυντικός ευγενείας) unless the brand
+  voice is deliberately casual.
+- Greek text runs ~10–20% longer than English — keep button and nav labels short so
+  they still fit their components.
+- Localize samples: € prices, DD/MM/YYYY dates, Greek names («Γιάννης Παπαδόπουλος»),
+  Greek placeholder emails (`onoma@pardeigma.gr`).
+- Put every string in Greek: headings, body, CTAs, placeholders, helper and error
+  text, empty states, alt text and aria-labels.
+
+For any other non-English language, apply the same principle using that language's own
+native UI conventions.
+
 ### Step 4: Format the Output
 
 Structure the enhanced prompt in this order:
@@ -122,6 +157,7 @@ Structure the enhanced prompt in this order:
 
 **DESIGN SYSTEM (REQUIRED):**
 - Platform: [Web/Mobile], [Desktop/Mobile]-first
+- Content Language: [e.g. Greek (Ελληνικά)] — write all on-screen copy in this language
 - Theme: [Light/Dark], [style descriptors]
 - Background: [Color description] (#hex)
 - Primary Accent: [Color description] (#hex) for [role]
@@ -195,6 +231,34 @@ Add a search bar to the header navigation.
 **Context:** This is a targeted edit. Make only this change while preserving all existing elements.
 ```
 
+### Example 3: Greek Project → Greek Copy
+
+**User input:**
+> "κάνε μου μια σελίδα σύνδεσης" ("make me a login page") — project language: Greek
+
+**Enhanced output:**
+```markdown
+Μια καθαρή, αξιόπιστη σελίδα σύνδεσης με κεντραρισμένη φόρμα και διακριτικό branding.
+
+**DESIGN SYSTEM (REQUIRED):**
+- Platform: Web, Desktop-first
+- Content Language: Greek (Ελληνικά) — όλα τα κείμενα της διεπαφής στα ελληνικά
+- Theme: Light, minimal, professional
+- Background: Clean White (#ffffff)
+- Surface: Soft Gray (#f9fafb) for the form card
+- Primary Accent: Deep Blue (#2563eb) for the "Σύνδεση" button and links
+- Text Primary: Near Black (#111827)
+- Text Secondary: Medium Gray (#6b7280) for labels
+
+**Page Structure:**
+1. **Header:** Λογότυπο κεντραρισμένο
+2. **Login Card:** Φόρμα με πεδία «Email» και «Κωδικός», σύνδεσμος «Ξεχάσατε τον κωδικό σας;»
+3. **Submit Button:** Κύριο κουμπί «Σύνδεση»
+4. **Footer:** Σύνδεσμος «Δεν έχετε λογαριασμό; Εγγραφή»
+```
+
+Note how the copy is native Greek — «Σύνδεση», not "Sign In" or the literal «Είσοδος» — while brand and technical tokens ("Email", hex codes) stay as-is.
+
 ## Tips for Best Results
 
 1. **Be specific early** — Vague inputs need more enhancement
@@ -202,3 +266,4 @@ Add a search bar to the header navigation.
 3. **Keep it structured** — Numbered sections help Stitch understand hierarchy
 4. **Include the design system** — Consistency is key for multi-page projects
 5. **One change at a time for edits** — Don't bundle unrelated changes
+6. **State the content language** — Write the copy in the project's language (native Greek for Greek projects), never English by default
