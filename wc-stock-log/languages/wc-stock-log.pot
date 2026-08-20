@@ -1,0 +1,165 @@
+# Translation template for WC Stock Log.
+msgid ""
+msgstr ""
+"Project-Id-Version: WC Stock Log 1.1.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: wc-stock-log\n"
+
+msgid "WC Stock Log – Stock History"
+msgstr ""
+
+msgid "Lightweight stock audit log for WooCommerce: records every stock change on products and variations — who, when, old/new quantity and source (order, refund, manual edit, CSV import, REST API etc.) — with per-product history, filters and CSV export. Shopify-style adjustment history."
+msgstr ""
+
+msgid "WC Stock Log requires an active WooCommerce installation."
+msgstr ""
+
+msgid "Order"
+msgstr ""
+
+msgid "Order restock"
+msgstr ""
+
+msgid "Refund (restock)"
+msgstr ""
+
+msgid "Product edit"
+msgstr ""
+
+msgid "Quick edit"
+msgstr ""
+
+msgid "Bulk edit"
+msgstr ""
+
+msgid "CSV import"
+msgstr ""
+
+msgid "REST API / external app"
+msgstr ""
+
+msgid "Scheduled task (cron)"
+msgstr ""
+
+msgid "WP-CLI"
+msgstr ""
+
+msgid "Storefront / checkout"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Product"
+msgstr ""
+
+msgid "Event"
+msgstr ""
+
+msgid "Adjusted by"
+msgstr ""
+
+msgid "Adjustment"
+msgstr ""
+
+msgid "Stock"
+msgstr ""
+
+msgid "Product #%d"
+msgstr ""
+
+msgid "System / Guest"
+msgstr ""
+
+msgid "Set"
+msgstr ""
+
+msgid "from %s"
+msgstr ""
+
+msgid "Nothing logged yet. Stock changes will appear here as they happen."
+msgstr ""
+
+msgid "All events"
+msgstr ""
+
+msgid "All users"
+msgstr ""
+
+msgid "User #%d"
+msgstr ""
+
+msgid "From date"
+msgstr ""
+
+msgid "To date"
+msgstr ""
+
+msgid "Filter"
+msgstr ""
+
+msgid "Clear"
+msgstr ""
+
+msgid "Stock history"
+msgstr ""
+
+msgid "History"
+msgstr ""
+
+msgid "You do not have permission to access this page."
+msgstr ""
+
+msgid "You do not have permission to perform this action."
+msgstr ""
+
+msgid "Export CSV"
+msgstr ""
+
+msgid "Settings saved."
+msgstr ""
+
+msgid "Showing history for: %s"
+msgstr ""
+
+msgid "× Clear"
+msgstr ""
+
+msgid "Search (name or SKU)"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Keep history for (days):"
+msgstr ""
+
+msgid "0 = never delete automatically. Older entries are removed once a day."
+msgstr ""
+
+msgid "Total entries in the database: %s"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Old stock"
+msgstr ""
+
+msgid "New stock"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "↗ View stock history"
+msgstr ""
+
+msgid "↗ Variation stock history"
+msgstr ""
+

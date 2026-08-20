@@ -1,0 +1,179 @@
+# Greek translation for WC Stock Log.
+# Ελληνική μετάφραση του WC Stock Log.
+msgid ""
+msgstr ""
+"Project-Id-Version: WC Stock Log 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-20 09:00+0000\n"
+"PO-Revision-Date: 2026-08-20 09:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ελληνικά\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Domain: wc-stock-log\n"
+
+#. Plugin Name of the plugin
+msgid "WC Stock Log – Stock History"
+msgstr "WC Stock Log – Ιστορικό Αποθέματος"
+
+#. Description of the plugin
+msgid "Lightweight stock audit log for WooCommerce: records every stock change on products and variations — who, when, old/new quantity and source (order, refund, manual edit, CSV import, REST API etc.) — with per-product history, filters and CSV export. Shopify-style adjustment history."
+msgstr "Πολύ ελαφρύ ημερολόγιο αποθέματος για WooCommerce: καταγράφει κάθε αλλαγή αποθέματος σε προϊόντα και παραλλαγές — ποιος, πότε, παλιά/νέα ποσότητα και πηγή (παραγγελία, επιστροφή, χειροκίνητη επεξεργασία, εισαγωγή CSV, REST API κ.λπ.) — με ιστορικό ανά προϊόν, φίλτρα και εξαγωγή CSV. Στο στιλ του «adjustment history» του Shopify."
+
+msgid "WC Stock Log requires an active WooCommerce installation."
+msgstr "Το «WC Stock Log» χρειάζεται ενεργό WooCommerce για να λειτουργήσει."
+
+msgid "Order"
+msgstr "Παραγγελία"
+
+msgid "Order restock"
+msgstr "Επαναφορά από παραγγελία"
+
+msgid "Refund (restock)"
+msgstr "Επιστροφή χρημάτων (restock)"
+
+msgid "Product edit"
+msgstr "Επεξεργασία προϊόντος"
+
+msgid "Quick edit"
+msgstr "Γρήγορη επεξεργασία"
+
+msgid "Bulk edit"
+msgstr "Μαζική επεξεργασία"
+
+msgid "CSV import"
+msgstr "Εισαγωγή CSV"
+
+msgid "REST API / external app"
+msgstr "REST API / εξωτερική εφαρμογή"
+
+msgid "Scheduled task (cron)"
+msgstr "Προγραμματισμένη εργασία (cron)"
+
+msgid "WP-CLI"
+msgstr "WP-CLI"
+
+msgid "Storefront / checkout"
+msgstr "Ιστότοπος / ταμείο"
+
+msgid "Other"
+msgstr "Άλλο"
+
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgid "Product"
+msgstr "Προϊόν"
+
+msgid "Event"
+msgstr "Συμβάν"
+
+msgid "Adjusted by"
+msgstr "Από ποιον"
+
+msgid "Adjustment"
+msgstr "Μεταβολή"
+
+msgid "Stock"
+msgstr "Απόθεμα"
+
+#. translators: %d: product id
+msgid "Product #%d"
+msgstr "Προϊόν #%d"
+
+msgid "System / Guest"
+msgstr "Σύστημα / Επισκέπτης"
+
+msgid "Set"
+msgstr "Ορισμός"
+
+#. translators: %s: previous stock quantity
+msgid "from %s"
+msgstr "από %s"
+
+msgid "Nothing logged yet. Stock changes will appear here as they happen."
+msgstr "Δεν υπάρχουν καταγραφές ακόμη. Οι αλλαγές αποθέματος θα εμφανίζονται εδώ μόλις γίνονται."
+
+msgid "All events"
+msgstr "Όλα τα συμβάντα"
+
+msgid "All users"
+msgstr "Όλοι οι χρήστες"
+
+#. translators: %d: user id
+msgid "User #%d"
+msgstr "Χρήστης #%d"
+
+msgid "From date"
+msgstr "Από ημερομηνία"
+
+msgid "To date"
+msgstr "Έως ημερομηνία"
+
+msgid "Filter"
+msgstr "Φιλτράρισμα"
+
+msgid "Clear"
+msgstr "Καθαρισμός"
+
+msgid "Stock history"
+msgstr "Ιστορικό αποθέματος"
+
+msgid "History"
+msgstr "Ιστορικό"
+
+msgid "You do not have permission to access this page."
+msgstr "Δεν έχετε δικαίωμα πρόσβασης σε αυτή τη σελίδα."
+
+msgid "You do not have permission to perform this action."
+msgstr "Δεν έχετε δικαίωμα για αυτή την ενέργεια."
+
+msgid "Export CSV"
+msgstr "Εξαγωγή CSV"
+
+msgid "Settings saved."
+msgstr "Οι ρυθμίσεις αποθηκεύτηκαν."
+
+#. translators: %s: product name
+msgid "Showing history for: %s"
+msgstr "Εμφάνιση ιστορικού για: %s"
+
+msgid "× Clear"
+msgstr "× Καθαρισμός"
+
+msgid "Search (name or SKU)"
+msgstr "Αναζήτηση (όνομα ή SKU)"
+
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+msgid "Keep history for (days):"
+msgstr "Διατήρηση ιστορικού (ημέρες):"
+
+msgid "0 = never delete automatically. Older entries are removed once a day."
+msgstr "0 = χωρίς αυτόματη διαγραφή. Οι παλαιότερες εγγραφές σβήνονται μία φορά την ημέρα."
+
+#. translators: %s: number of entries
+msgid "Total entries in the database: %s"
+msgstr "Σύνολο εγγραφών στη βάση: %s"
+
+msgid "Save"
+msgstr "Αποθήκευση"
+
+msgid "Old stock"
+msgstr "Παλιό απόθεμα"
+
+msgid "New stock"
+msgstr "Νέο απόθεμα"
+
+msgid "User"
+msgstr "Χρήστης"
+
+msgid "↗ View stock history"
+msgstr "↗ Προβολή ιστορικού αποθέματος"
+
+msgid "↗ Variation stock history"
+msgstr "↗ Ιστορικό αποθέματος παραλλαγής"

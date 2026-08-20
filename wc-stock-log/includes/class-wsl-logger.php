@@ -231,18 +231,18 @@ class WSL_Logger {
 	 */
 	public static function sources() {
 		return array(
-			'order'         => __( 'Παραγγελία', 'wc-stock-log' ),
-			'order_restock' => __( 'Επαναφορά από παραγγελία', 'wc-stock-log' ),
-			'refund'        => __( 'Επιστροφή χρημάτων (restock)', 'wc-stock-log' ),
-			'admin'         => __( 'Επεξεργασία προϊόντος', 'wc-stock-log' ),
-			'quick_edit'    => __( 'Γρήγορη επεξεργασία', 'wc-stock-log' ),
-			'bulk_edit'     => __( 'Μαζική επεξεργασία', 'wc-stock-log' ),
-			'import'        => __( 'Εισαγωγή CSV', 'wc-stock-log' ),
-			'rest'          => __( 'REST API / εξωτερική εφαρμογή', 'wc-stock-log' ),
-			'cron'          => __( 'Προγραμματισμένη εργασία', 'wc-stock-log' ),
+			'order'         => __( 'Order', 'wc-stock-log' ),
+			'order_restock' => __( 'Order restock', 'wc-stock-log' ),
+			'refund'        => __( 'Refund (restock)', 'wc-stock-log' ),
+			'admin'         => __( 'Product edit', 'wc-stock-log' ),
+			'quick_edit'    => __( 'Quick edit', 'wc-stock-log' ),
+			'bulk_edit'     => __( 'Bulk edit', 'wc-stock-log' ),
+			'import'        => __( 'CSV import', 'wc-stock-log' ),
+			'rest'          => __( 'REST API / external app', 'wc-stock-log' ),
+			'cron'          => __( 'Scheduled task (cron)', 'wc-stock-log' ),
 			'cli'           => __( 'WP-CLI', 'wc-stock-log' ),
-			'web'           => __( 'Ιστότοπος / ταμείο', 'wc-stock-log' ),
-			'other'         => __( 'Άλλο', 'wc-stock-log' ),
+			'web'           => __( 'Storefront / checkout', 'wc-stock-log' ),
+			'other'         => __( 'Other', 'wc-stock-log' ),
 		);
 	}
 

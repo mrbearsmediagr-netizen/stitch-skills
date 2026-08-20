@@ -77,12 +77,12 @@ class WSL_List_Table extends WP_List_Table {
 
 	public function get_columns() {
 		return array(
-			'created_at' => __( 'Ημερομηνία', 'wc-stock-log' ),
-			'product'    => __( 'Προϊόν', 'wc-stock-log' ),
-			'event'      => __( 'Συμβάν', 'wc-stock-log' ),
-			'user'       => __( 'Από ποιον', 'wc-stock-log' ),
-			'delta'      => __( 'Μεταβολή', 'wc-stock-log' ),
-			'stock'      => __( 'Απόθεμα', 'wc-stock-log' ),
+			'created_at' => __( 'Date', 'wc-stock-log' ),
+			'product'    => __( 'Product', 'wc-stock-log' ),
+			'event'      => __( 'Event', 'wc-stock-log' ),
+			'user'       => __( 'Adjusted by', 'wc-stock-log' ),
+			'delta'      => __( 'Adjustment', 'wc-stock-log' ),
+			'stock'      => __( 'Stock', 'wc-stock-log' ),
 		);
 	}
 
@@ -143,7 +143,7 @@ class WSL_List_Table extends WP_List_Table {
 	public function column_product( $row ) {
 		$edit_id = $row->parent_id ? $row->parent_id : $row->product_id;
 		$url     = get_edit_post_link( $edit_id, 'raw' );
-		$name    = $row->product_name ? $row->product_name : sprintf( __( 'Προϊόν #%d', 'wc-stock-log' ), $row->product_id );
+		$name    = $row->product_name ? $row->product_name : sprintf( __( 'Product #%d', 'wc-stock-log' ), $row->product_id );
 
 		$html = $url
 			? '<a class="wsl-product" href="' . esc_url( $url ) . '">' . esc_html( $name ) . '</a>'
@@ -171,7 +171,7 @@ class WSL_List_Table extends WP_List_Table {
 
 	public function column_user( $row ) {
 		if ( ! $row->user_id ) {
-			return '<span class="wsl-muted-strong">' . esc_html__( 'Σύστημα / Επισκέπτης', 'wc-stock-log' ) . '</span>';
+			return '<span class="wsl-muted-strong">' . esc_html__( 'System / Guest', 'wc-stock-log' ) . '</span>';
 		}
 		$name = $row->user_name ? $row->user_name : sprintf( '#%d', $row->user_id );
 		$url  = admin_url( 'user-edit.php?user_id=' . absint( $row->user_id ) );
@@ -180,7 +180,7 @@ class WSL_List_Table extends WP_List_Table {
 
 	public function column_delta( $row ) {
 		if ( null === $row->delta ) {
-			return '<span class="wsl-badge wsl-badge--set">' . esc_html__( 'Ορισμός', 'wc-stock-log' ) . '</span>';
+			return '<span class="wsl-badge wsl-badge--set">' . esc_html__( 'Set', 'wc-stock-log' ) . '</span>';
 		}
 		$delta = (float) $row->delta;
 		if ( $delta > 0 ) {
@@ -193,7 +193,7 @@ class WSL_List_Table extends WP_List_Table {
 		$new = null === $row->new_qty ? '—' : wc_stock_amount( (float) $row->new_qty );
 		$old = null === $row->old_qty ? '—' : wc_stock_amount( (float) $row->old_qty );
 		return '<span class="wsl-stock-new">' . esc_html( $new ) . '</span>' .
-			'<span class="wsl-muted">' . sprintf( esc_html__( 'από %s', 'wc-stock-log' ), esc_html( $old ) ) . '</span>';
+			'<span class="wsl-muted">' . sprintf( esc_html__( 'from %s', 'wc-stock-log' ), esc_html( $old ) ) . '</span>';
 	}
 
 	public function column_default( $row, $column_name ) {
@@ -201,7 +201,7 @@ class WSL_List_Table extends WP_List_Table {
 	}
 
 	public function no_items() {
-		esc_html_e( 'Δεν υπάρχουν καταγραφές ακόμη. Μόλις αλλάξει το απόθεμα κάποιου προϊόντος, θα εμφανιστεί εδώ.', 'wc-stock-log' );
+		esc_html_e( 'Nothing logged yet. Stock changes will appear here as they happen.', 'wc-stock-log' );
 	}
 
 	/* ---------------------------------------------------------------------
@@ -224,17 +224,17 @@ class WSL_List_Table extends WP_List_Table {
 		echo '<div class="alignleft actions wsl-filters">';
 
 		echo '<select name="filter_source">';
-		echo '<option value="">' . esc_html__( 'Όλα τα συμβάντα', 'wc-stock-log' ) . '</option>';
+		echo '<option value="">' . esc_html__( 'All events', 'wc-stock-log' ) . '</option>';
 		foreach ( $sources as $key => $label ) {
 			printf( '<option value="%s" %s>%s</option>', esc_attr( $key ), selected( $f['source'], $key, false ), esc_html( $label ) );
 		}
 		echo '</select>';
 
 		echo '<select name="filter_user">';
-		echo '<option value="">' . esc_html__( 'Όλοι οι χρήστες', 'wc-stock-log' ) . '</option>';
+		echo '<option value="">' . esc_html__( 'All users', 'wc-stock-log' ) . '</option>';
 		foreach ( $user_ids as $uid ) {
 			$u     = get_userdata( (int) $uid );
-			$label = $u ? $u->display_name : sprintf( __( 'Χρήστης #%d', 'wc-stock-log' ), $uid );
+			$label = $u ? $u->display_name : sprintf( __( 'User #%d', 'wc-stock-log' ), $uid );
 			printf( '<option value="%d" %s>%s</option>', (int) $uid, selected( $f['user_id'], (int) $uid, false ), esc_html( $label ) );
 		}
 		echo '</select>';
@@ -242,15 +242,15 @@ class WSL_List_Table extends WP_List_Table {
 		printf(
 			'<input type="date" name="filter_from" value="%s" title="%s" /> <span class="wsl-dash">–</span> <input type="date" name="filter_to" value="%s" title="%s" />',
 			esc_attr( $f['from'] ),
-			esc_attr__( 'Από ημερομηνία', 'wc-stock-log' ),
+			esc_attr__( 'From date', 'wc-stock-log' ),
 			esc_attr( $f['to'] ),
-			esc_attr__( 'Έως ημερομηνία', 'wc-stock-log' )
+			esc_attr__( 'To date', 'wc-stock-log' )
 		);
 
-		submit_button( __( 'Φιλτράρισμα', 'wc-stock-log' ), '', 'filter_action', false );
+		submit_button( __( 'Filter', 'wc-stock-log' ), '', 'filter_action', false );
 
 		if ( $f['product_id'] || $f['user_id'] || $f['source'] || $f['from'] || $f['to'] || $f['s'] || $f['order_id'] ) {
-			echo ' <a class="button" href="' . esc_url( admin_url( 'admin.php?page=wsl-stock-log' ) ) . '">' . esc_html__( 'Καθαρισμός', 'wc-stock-log' ) . '</a>';
+			echo ' <a class="button" href="' . esc_url( admin_url( 'admin.php?page=wsl-stock-log' ) ) . '">' . esc_html__( 'Clear', 'wc-stock-log' ) . '</a>';
 		}
 
 		echo '</div>';

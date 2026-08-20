@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:          WC Stock Log – Ιστορικό Αποθέματος
- * Description:          Καταγράφει κάθε αλλαγή αποθέματος σε προϊόντα και παραλλαγές του WooCommerce: ποιος την έκανε, πότε, από πού (παραγγελία, επιστροφή χρημάτων, χειροκίνητη επεξεργασία, εισαγωγή CSV, REST API κ.λπ.), με ιστορικό ανά προϊόν, φίλτρα και εξαγωγή CSV — στο στιλ του «adjustment history» του Shopify.
- * Version:              1.0.0
+ * Plugin Name:          WC Stock Log – Stock History
+ * Description:          Lightweight stock audit log for WooCommerce: records every stock change on products and variations — who, when, old/new quantity and source (order, refund, manual edit, CSV import, REST API etc.) — with per-product history, filters and CSV export. Shopify-style adjustment history.
+ * Version:              1.1.0
  * Author:               Bears Media
  * Requires at least:    6.0
  * Requires PHP:         7.4
@@ -14,7 +14,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'WSL_VERSION', '1.0.0' );
+define( 'WSL_VERSION', '1.1.0' );
 define( 'WSL_FILE', __FILE__ );
 define( 'WSL_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WSL_URL', plugin_dir_url( __FILE__ ) );
@@ -23,6 +23,14 @@ require_once WSL_DIR . 'includes/class-wsl-install.php';
 
 register_activation_hook( __FILE__, array( 'WSL_Install', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'WSL_Install', 'deactivate' ) );
+
+// Μεταφράσεις: αγγλικά ως βάση, ελληνικά όταν η γλώσσα του site/χρήστη είναι ελληνικά.
+add_action(
+	'init',
+	function () {
+		load_plugin_textdomain( 'wc-stock-log', false, dirname( plugin_basename( WSL_FILE ) ) . '/languages' );
+	}
+);
 
 // Συμβατότητα με HPOS (custom order tables).
 add_action(
@@ -42,7 +50,7 @@ function wsl_boot() {
 			'admin_notices',
 			function () {
 				echo '<div class="notice notice-error"><p>' .
-					esc_html__( 'Το «WC Stock Log» χρειάζεται ενεργό WooCommerce για να λειτουργήσει.', 'wc-stock-log' ) .
+					esc_html__( 'WC Stock Log requires an active WooCommerce installation.', 'wc-stock-log' ) .
 					'</p></div>';
 			}
 		);
